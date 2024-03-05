@@ -1,8 +1,7 @@
 part of 'timer_bloc.dart';
 
 // sealed class is a class that can only be extended by classes declared in the same file
-// Equa
-sealed class TimerState extends Equatable {
+sealed class TimerState {
   const TimerState(this.duration);
   final int duration;
 
