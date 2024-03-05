@@ -4,13 +4,10 @@ import 'package:timer_app/ticker.dart';
 part 'timer_event.dart';
 part 'timer_state.dart';
 
-// Bloc: Takes a stream of TimerEvents as input and
-// transforms them into a stream of TimerStates as output.
+// TimerBloc: Take a stream of TimerEvents and transform them into a stream of TimerStates.
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
-  // TimerBloc: Constructor
   // Create TimerBloc, take a Ticker as a parameter and initialize the state with TimerInitial.
-  // Listen to TimerStarted, TimerPaused, and _TimerTicked events
-  // and call the corresponding event handlers.
+  // Listen to stream of TimerEvents and call the appropriate event handler.
   TimerBloc({required Ticker ticker})
       : _ticker = ticker,
         super(const TimerInitial(_duration)) {
@@ -23,8 +20,8 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
 
   final Ticker _ticker;
   static const int _duration = 60; // initial duration
-  StreamSubscription<int>?
-      _tickerSubscription; // StreamSubscription: A subscription on a Stream.
+  StreamSubscription<int>? _tickerSubscription; // StreamSubscription to listen to the ticks of the _tickker.
+  
 
   // we cancel the subscription when the bloc is closed
   @override

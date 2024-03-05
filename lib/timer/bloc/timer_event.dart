@@ -1,5 +1,7 @@
 part of 'timer_bloc.dart';
 
+// These are the events that the TimerBloc will have in its event stream.
+// The TimerBloc will react to these events and update its state accordingly.
 sealed class TimerEvent {
   const TimerEvent();
 }

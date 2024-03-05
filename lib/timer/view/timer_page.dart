@@ -91,11 +91,15 @@ class Actions extends StatelessWidget {
                   FloatingActionButton(
                     child: const Icon(Icons.pause),
                     onPressed: () =>
+                    // Read the TimerBloc instance from the current BuildContext and
+                    // add TimerPaused event to the TimerBloc.
                         context.read<TimerBloc>().add(const TimerPaused()),
                   ),
                   FloatingActionButton(
                     child: const Icon(Icons.replay),
                     onPressed: () =>
+                    // Read the TimerBloc instance from the current BuildContext and
+                    // add TimerReset event to the TimerBloc.
                         context.read<TimerBloc>().add(const TimerReset()),
                   ),
                 ],
